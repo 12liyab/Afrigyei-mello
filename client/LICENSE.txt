@@ -1,0 +1,11 @@
+Confidential Information
+
+Copyright (c) 2025 [Micheal and Liyab]. All rights reserved.
+
+This software and associated documentation are the confidential and proprietary 
+information of [Micheal and Liyab]. 
+("Confidential Information"). 
+You shall not disclose, reproduce,
+distribute, or use this Confidential Information for any purpose other 
+than as expressly authorized in writing by [Micheal and Liyab].
+Unauthorized use or disclosure of this Confidential Information is strictly prohibited.
