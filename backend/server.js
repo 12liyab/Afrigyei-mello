@@ -10,12 +10,11 @@ const port = process.env.PORT || 3000;
 // Middleware to parse JSON
 app.use(express.json());
 
-// Enable CORS for frontend URL with credentials and allowed methods/headers
+// Enable CORS for all origins (adjust as needed)
 app.use(cors({
-  origin: 'https://dvla-afrigyei.netlify.app/',
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type']
+  origin: process.env.FRONTEND_URL || 'https://dvla-afrigyei.netlify.app/',
+  methods: ['POST'],
+  allowedHeaders: ['Content-Type'] // Allow only 'Content-Type' header
 }));
 
 // MongoDB connection
