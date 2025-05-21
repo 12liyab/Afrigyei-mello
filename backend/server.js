@@ -12,7 +12,7 @@ app.use(express.json());
 
 // Enable CORS for frontend URL with credentials and allowed methods/headers
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: 'https://dvla-afrigyei.netlify.app/',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type'],
