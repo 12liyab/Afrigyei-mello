@@ -5,7 +5,7 @@ const cors = require('cors');
 const crypto = require('crypto');
 
 const app = express();
-const port = process.env.PORT || 'https://afrigyei-mello.onrender.com';
+const port = process.env.PORT || 3000;
 
 // Middleware to parse JSON
 app.use(express.json());
