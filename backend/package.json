@@ -4,8 +4,10 @@
   "description": "Express backend connected to MongoDB",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
-  },
+  "start": "node server.js",       // Or your main file (e.g., server.js, app.js)
+  "build": "echo 'No build step needed for Express' && exit 0",
+  "dev": "node server.js"      // Optional: For local development
+},
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
