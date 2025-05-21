@@ -10,8 +10,13 @@ const port = process.env.PORT || 3000;
 // Middleware to parse JSON
 app.use(express.json());
 
-// Enable CORS for all origins (adjust as needed)
-app.use(cors());
+// Enable CORS for frontend URL with credentials and allowed methods/headers
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type'],
+}));
 
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI, {

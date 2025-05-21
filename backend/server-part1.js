@@ -12,7 +12,12 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 // Enable CORS for all origins (adjust as needed)
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL ,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type']
+}));
 
 // Serve frontend static files
 app.use(express.static(path.join(__dirname, '..')));
