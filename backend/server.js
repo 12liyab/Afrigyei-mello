@@ -21,6 +21,30 @@ app.use(cors({
    allowedHeaders: ['Content-Type', 'Authorization'] // Allow only 'Content-Type' header
 }));
 
+
+
+// Add this right after your CORS middleware
+app.get('/', (req, res) => {
+  res.json({
+    status: 'API is running',
+    message: 'Welcome to the Afrigyei Mello backend service',
+    availableEndpoints: {
+      auth: {
+        register: 'POST /api/register',
+        login: 'POST /api/login'
+      },
+      records: {
+        create: 'POST /api/records',
+        list: 'GET /api/records',
+        update: 'PUT /api/records/:id',
+        delete: 'DELETE /api/records/:id'
+      }
+    },
+    timestamp: new Date()
+  });
+});
+
+
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
