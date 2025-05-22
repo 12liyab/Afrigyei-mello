@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 // Enable CORS for all origins (adjust as needed)
 app.use(cors({
   origin: [
-    'https://dvla-afrigyei.netlify.app', // Your Netlify URL
+    'https://dvla.netlify.app/', // Your Netlify URL
     'http://localhost:3000' // For local development
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],

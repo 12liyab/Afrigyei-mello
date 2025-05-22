@@ -1024,7 +1024,7 @@ async function login() {
     }
 
     try {
-        const response = await fetch('https://dvla.onrender.com/api/login', {
+        const response = await fetch(`${API_BASE_URL}/api/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
@@ -1106,7 +1106,7 @@ async function addRow() {
     };
 
     try {
-        const response = await fetch('https://dvla.onrender.com/api/records', {
+        const response = await fetch(`${API_BASE_URL}/api/records`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(record)
@@ -1149,7 +1149,7 @@ async function loadRecords() {
 
 async function editRow(id) {
     try {
-        const response = await fetch(`https://dvla.onrender.com/api/records/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/api/records/${id}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         });
@@ -1181,7 +1181,7 @@ async function editRow(id) {
 async function deleteRow(id) {
     if (confirm("Are you sure you want to delete this record?")) {
         try {
-            const response = await fetch(`https://dvla.onrender.com/api/records/${id}`, {
+            const response = await fetch(`${API_BASE_URL}/api/records/${id}`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -1203,7 +1203,7 @@ async function confirmClearTable() {
     const action = prompt("Type 'CLEAR' to clear all active records or 'DELETE' to mark as deleted:");
     if (action === 'CLEAR') {
         try {
-            const response = await fetch('https://dvla.onrender.com/api/records', {
+            const response = await fetch(`${API_BASE_URL}/api/records`, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -1229,7 +1229,7 @@ async function confirmClearTable() {
     } else if (action === 'DELETE') {
         if (confirm("Are you sure you want to mark all active records as deleted?")) {
             try {
-                const response = await fetch('https://dvla.onrender.com/api/records', {
+                const response = await fetch(`${API_BASE_URL}/api/records`, {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' }
                 });
@@ -1270,7 +1270,7 @@ async function retrieveRecords() {
     }
 
     try {
-        const response = await fetch(`https://dvla.onrender.com/api/records?status=${status}`, {
+        const response = await fetch(`https://afrigyei-mello.onrender.com/api/records?status=${status}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         });
@@ -1282,7 +1282,7 @@ async function retrieveRecords() {
             }
             if (confirm(`Retrieve all ${status} records? This will set them to active.`)) {
                 for (const record of records) {
-                    await fetch(`https://dvla.onrender.com/api/records/${record._id}`, {
+                    await fetch(`${API_BASE_URL}/api/records/${record._id}`, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ ...record, status: 'active' })
@@ -1379,7 +1379,7 @@ async function exportRecords() {
             if (searchTerm) params.append('search', searchTerm);
             if (monthFilter !== 'all') params.append('month', monthFilter);
 
-            const response = await fetch(`https://dvla.onrender.com/api/records?${params.toString()}`, {
+            const response = await fetch(`${API_BASE_URL}/api/records?${params.toString()}`, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -1499,7 +1499,7 @@ async function showExpiryReminders() {
     reminderThreshold.setDate(today.getDate() + 7);
 
     try {
-        const response = await fetch('https://dvla.onrender.com/api/records?status=active', {
+        const response = await fetch(`${API_BASE_URL}/api/records?status=active`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         });
