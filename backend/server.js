@@ -15,11 +15,17 @@ app.use(express.urlencoded({ extended: true }));
 
 // Enable CORS for all origins (adjust as needed)
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-   allowedHeaders: ['Content-Type', 'Authorization'] // Allow only 'Content-Type' header
+  origin: [
+    'https://dvla-afrigyei.netlify.app', // Your Netlify URL
+    'http://localhost:3000' // For local development
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
+
+// Handle preflight requests
+app.options('*', cors());
 
 
 
