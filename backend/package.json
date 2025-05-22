@@ -2,7 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Express backend connected to MongoDB",
+  "license": "MIT",
   "main": "server.js",
+  "engines": {       
+    "node": ">=18.x"
+  },
   "scripts": {
     "start": "node server.js",
     "build": "echo 'No build step needed for Express'",
