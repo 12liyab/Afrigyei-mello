@@ -10,11 +10,8 @@ const port = process.env.PORT || 3000;
 
 // Middleware to parse JSON
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../client')));
+app.use(express.urlencoded({ extended: true }));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/index.html'));
-});
 
 // Enable CORS for all origins (adjust as needed)
 app.use(cors({
