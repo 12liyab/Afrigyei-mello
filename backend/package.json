@@ -4,14 +4,18 @@
   "description": "Express backend connected to MongoDB",
   "main": "server.js",
   "scripts": {
-  "start": "node server.js",      
-  "build": "echo 'No build step needed for Express' && exit 0",
-  "dev": "node server.js"     
-},
+    "start": "node server.js",
+    "build": "echo 'No build step needed for Express'",
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
   }
 }
