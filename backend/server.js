@@ -14,13 +14,12 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // Enable CORS for all origins (adjust as needed)
+// Replace your current CORS middleware with this:
 app.use(cors({
-  origin: [
-    'https://dvla.netlify.app/', // Your Netlify URL
-    'https://dvla.onrender.com' // For local development
-  ],
+  origin: true, // Reflects the request origin
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Handle preflight requests
