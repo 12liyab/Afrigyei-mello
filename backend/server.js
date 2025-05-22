@@ -20,7 +20,6 @@ app.use(cors({
     'https://dvla.onrender.com' // For local development
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
 
